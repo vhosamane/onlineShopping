@@ -1,4 +1,4 @@
-<form class="form" #f="ngForm" (ngSubmit)="userRegistrationForm(userRegistration)">
+<form class="form" #f="ngForm" (ngSubmit)="userRegistrationForm(f)">
    <div class="form-group">
      <label for="userName">Name</label>
      <input type="text" class="form-control" id="userName" required [(ngModel)]="user.name" #name="ngModel" name="name" [ngClass]="{'is-invalid': f.submitted && name.invalid}"/>
@@ -16,7 +16,7 @@
    </div>
    <div class="form-group">
      <label>Password</label>
-     <input type="password" class="form-control" required [(ngModel)]="user.password" #password="ngModel" name="password" [ngClass]="{'is-invalid': f.submitted && password.invalid}"/>
+     <input type="password" class="form-control" required [(ngModel)]="user.password" #password="ngModel" name="password" (input)="pwConfirm.control.updateValueAndValidity()" [ngClass]="{'is-invalid': f.submitted && password.invalid}"/>
      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
        <div *ngIf="password.errors.required">Password Mandatory</div>
      </div>
@@ -26,7 +26,7 @@
      <input type="password" class="form-control" name="cpassword" [(ngModel)]="user.cpassword" #pwConfirm="ngModel" required CompareValidator="password" [ngClass]="{'is-invalid': f.submitted && pwConfirm.invalid}"/>
      <div *ngIf="f.submitted && pwConfirm.invalid" class="invalid-feedback">
        <div *ngIf="pwConfirm.errors.required">Password Mandatory</div>
-       <div *ngIf="pwConfirm.errors.notEqual">Password Does not match</div>
+       <div *ngIf="pwConfirm.errors.notEqual && !pwConfirm.errors.required">Password Does not match</div>
      </div>
    </div>
    <div class="form-group">

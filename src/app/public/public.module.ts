@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
 import { StoreComponent } from './store/store.component';
 import { CartComponent } from './cart/cart.component';
+import { ShowDomDirective } from '../show-dom.directive';
+import { CompareValidatorDirective } from '../compare-validator.directive';
 
 @NgModule({
   imports: [
@@ -19,6 +21,6 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomeDashboardComponent, LoginComponent, RegisterComponent, MenuComponent, StoreComponent, CartComponent]
+  declarations: [HomeDashboardComponent, CompareValidatorDirective, ShowDomDirective, LoginComponent, RegisterComponent, MenuComponent, StoreComponent, CartComponent]
 })
 export class PublicModule { }

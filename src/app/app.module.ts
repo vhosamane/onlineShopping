@@ -9,16 +9,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { CompareValidatorDirective } from './compare-validator.directive';
-import { ShowDomDirective } from './show-dom.directive';
-import { PasswordCheckDirective } from './password-check.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CompareValidatorDirective,
-    ShowDomDirective,
-    PasswordCheckDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
