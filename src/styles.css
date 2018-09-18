@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+
+.listing-img {
+  max-width: 100%;
+}
+
+.cart {
+  margin: 40px 0;
+}
+
+.items .product {
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.items .product .info {
+  padding-top: 25px;
+  text-align: left;
+}
+
+.items .product .info .product-name {
+  font-weight: 600;
+}
+
+.items .product .info .quantity {
+  text-align: center;
+}
+
+.items .product .info .quantity .quantity-input {
+  padding: 4px 10px;
+  text-align: center;
+  margin: auto;
+  width: 80px;
+}
+
+.items .product .info .price {
+  font-weight: bold;
+  font-size: 22px;
+  top: 17px;
+  margin-top: 15px;
+}
+
+.items .product .info .deleteItem {
+  margin-top: 24px;
+}
+
+.summary {
+  border-top: 2px solid #5ea4f3;
+  background-color: #f7fbff;
+  height: 100%;
+  padding: 30px;
+}
+
+.summary h3 {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.summary .summary-item {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.summary .summary-item .text {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.summary .summary-item .price {
+  font-size: 1em;
+  float: right;
+}

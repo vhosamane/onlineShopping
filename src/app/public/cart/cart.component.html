@@ -1,0 +1,86 @@
+<div class="cart">
+  <div class="row" *ngIf="cartService.cart.totalItems <= 0">
+    <div class="col-lg-12 mb-3">
+      Your Cart is Empty
+    </div>
+  </div>
+  <div class="row" *ngIf="orderConfirmation">
+    <div class="col-md-12 col-lg-8">
+      <div class="items">
+        <div class="product" *ngFor="let item of cartService.cart.items">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info">
+                <div class="row">
+                  <div class="col-md-4 product-name">
+                    {{item.name}}
+                  </div>
+                  <div class="col-md-3 quantity">
+                    <label for="quantity">Quantity:</label>
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-danger" type="button" [disabled]="item.quantity <= 1" (click)="cartService.addToCart(item.productId, item.name, item.unitPrice, -1)">-</button>
+                      </div>
+                      <input id="quantity" type="text" [(ngModel)]="item.quantity" class="form-control quantity-input">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" [disabled]="item.quantity < 1" (click)="cartService.addToCart(item.productId, item.name, item.unitPrice, 1)">+</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 price">
+                    <span>{{item.unitPrice * item.quantity | currency: "INR"}}</span>
+                  </div>
+                  <div class="col-md-2 deleteItem">
+                    <button class="btn btn-danger" (click)="cartService.deleteFromCart(item.productId)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-danger" (click)="cartService.clearCart()">Clear cart</button>
+      <button class="btn btn-info float-right" [routerLink]="['/store']">Continue Shopping</button>
+    </div>
+    <div class="col-md-12 col-lg-4">
+      <div class="summary" *ngIf = "cartService.cart.total !== 0">
+        <h3>summary</h3>
+        <div class="summary-item">
+          <span class="text">Subtotal</span>
+          <span class="price">{{cartService.cart.total | currency: "INR"}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="text">Discount</span>
+          <span class="price">0</span>
+        <!--  <ng-template [ngIf]="cartService.cart.total < 1000" [ngIfElse]="total">
+            <span class="price">0</span>
+          </ng-template>
+          <ng-template #total>
+            <span class="price">100</span>
+          </ng-template> -->
+        </div>
+        <div class="summary-item">
+          <span class="text">Shipping</span>
+          <span class="price">0</span>
+        </div>
+        <div class="summary-item">
+          <span class="text">Total</span>
+          <span class="price">{{cartService.cart.total | currency: "INR"}}</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="checkout()">Checkout</button>
+      </div>
+  </div>
+</div>
+<div class="orderConfirmation" *ngIf="!orderConfirmation">
+  <div class="row">
+    <div class="col-lg-12">
+        <h2>Your order has been received</h2>
+    </div>
+    <div class="col-lg-12">
+      <h3>Thank you for purchase</h3>
+      <p>Your order # 123456789</p>
+      <p>You will receive an order order confirmation email with details of your order and link to tarck its progress</p>
+      <button class="btn btn-info" [routerLink]="['/store']">Continue Shopping</button>
+    </div>
+  </div>
+</div>

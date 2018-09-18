@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container">
+    <!-- Logo goes here-->
+    <a class="navbar-brand" href="#">Shopping Cart</a>
+
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+         <a class="nav-link" routerLinkActive="active">Home</a>
+       </li>
+       <li class="nav-item" *ngIf="authService.user == undefined">
+         <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+       </li>
+       <li class="nav-item" *ngIf="authService.user == undefined">
+         <a class="nav-link" routerLinkActive="active" routerLink="/register">Register</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" routerLinkActive="active" routerLink="/store">Store</a>
+       </li>
+       <li class="nav-item" *ngIf="cartService.cart.totalItems > 0">
+         <a class="nav-link" routerLinkActive="active" routerLink="/cart">CartItem</a>
+       </li>
+       <span *ngIf="cartService.cart.totalItems > 0">{{cartService.cart.totalItems}}</span>
+       <!-- {{cartService.cart.total}} -->
+     </ul>
+     <ul class="navbar-nav ml-auto" *ngIf="authService.user != undefined">
+       <li class="nav-item">Welcome: {{authService.user.name}}</li>
+       <li class="nav-item" (click)="signOut()">LogOut</li>
+     </ul>
+  </div>
+</nav>

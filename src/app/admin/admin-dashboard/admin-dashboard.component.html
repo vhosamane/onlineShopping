@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container">
+    <!-- Logo goes here-->
+    <a class="navbar-brand" href="#">Admin</a>
+     <ul class="navbar-nav ml-auto" *ngIf="authService.user != undefined">
+       <li class="nav-item">Welcome: {{authService.user.name}}</li>
+       <li class="nav-item" (click)="signOut()">LogOut</li>
+     </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-3">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#adminAddProduct">Add Product</button>
+    </div>
+    <div class="col-6">
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <table class="table">
+     <thead class="thead-light">
+       <tr>
+          <th class="text-center">Serial Number</th>
+          <th class="text-center">Total</th>
+          <th class="text-center">Total Items</th>
+          <th class="text-center">User Id</th>
+       </tr>
+     </thead>
+     <tr *ngFor="let eachItem of ordersDetail; let i = index">
+       <td class="text-center">{{i+1}}</td>
+       <td class="text-center">{{eachItem.total}}</td>
+       <td class="text-center">{{eachItem.totalItems}}</td>
+       <td class="text-center">{{eachItem.userId}}</td>
+     </tr>
+    </table>
+  </div>
+
+
+  <div class="modal fade" id="adminAddProduct">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Product</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form class="form" #adminAddProduct="ngForm" (ngSubmit)="productAdd(adminAddProduct)">
+            <div class="form-group">
+              <label>Product Name</label>
+              <input type="text" class="form-control" name="pName" [(ngModel)]="product.name" required/>
+            </div>
+            <div class="form-group">
+              <label>Product price</label>
+              <input type="text" class="form-control" name="pPrice" [(ngModel)]="product.unitPrice" required/>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+               <select class="custom-select" [(ngModel)]="product.categoryId" name="pCategory" required>
+                 <option value="EwAHbMap5RTIYUXK2yE">Books</option>
+               </select>
+            </div>
+            <div class="form-group">
+              <label>Product Image</label>
+              <input type="file" class="form-control-file" name="pFile" (change)="readFile($event)" required>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add Product</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

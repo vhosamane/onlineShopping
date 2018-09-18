@@ -1,0 +1,49 @@
+<form class="form" #f="ngForm" (ngSubmit)="userRegistrationForm(userRegistration)">
+   <div class="form-group">
+     <label for="userName">Name</label>
+     <input type="text" class="form-control" id="userName" required [(ngModel)]="user.name" #name="ngModel" name="name" [ngClass]="{'is-invalid': f.submitted && name.invalid}"/>
+     <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+       <div *ngIf="name.errors.required">Name is mandatory</div>
+     </div>
+   </div>
+   <div class="form-group">
+     <label for="email">Email</label>
+     <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" #email="ngModel" name="email" [ngClass]="{'is-invalid': f.submitted && email.invalid}" email/>
+     <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+       <div *ngIf="email.errors.required">Email is Mandatory</div>
+       <div *ngIf="email.errors.email">Enater Valid Email</div>
+     </div>
+   </div>
+   <div class="form-group">
+     <label>Password</label>
+     <input type="password" class="form-control" required [(ngModel)]="user.password" #password="ngModel" name="password" [ngClass]="{'is-invalid': f.submitted && password.invalid}"/>
+     <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+       <div *ngIf="password.errors.required">Password Mandatory</div>
+     </div>
+   </div>
+   <div class="form-group">
+     <label>Confirm Password</label>
+     <input type="password" class="form-control" name="cpassword" [(ngModel)]="user.cpassword" #pwConfirm="ngModel" required CompareValidator="password" [ngClass]="{'is-invalid': f.submitted && pwConfirm.invalid}"/>
+     <div *ngIf="f.submitted && pwConfirm.invalid" class="invalid-feedback">
+       <div *ngIf="pwConfirm.errors.required">Password Mandatory</div>
+       <div *ngIf="pwConfirm.errors.notEqual">Password Does not match</div>
+     </div>
+   </div>
+   <div class="form-group">
+     <label for="contactNo">Contact Number</label>
+     <input type="text" class="form-control" id="contactNo" required [(ngModel)]="user.contact" #contact="ngModel" name="contact" [ngClass]="{'is-invalid': f.submitted && contact.invalid}"/>
+     <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
+       <div *ngIf="contact.errors.required"> Contact is Madantory </div>
+     </div>
+   </div>
+   <div class="form-group">
+     <label for="Address">Address</label>
+     <input type="text" class="form-control" id="Address" required [(ngModel)]="user.address" #address="ngModel" name="address" [ngClass]="{'is-invalid': f.submitted && address.invalid}"/>
+     <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+       <div *ngIf="address.errors.required"> Address is Madantory </div>
+     </div>
+   </div>
+   <div class="form-group">
+     <button type="submit" class="btn btn-primary">Register</button>
+   </div>
+</form>
