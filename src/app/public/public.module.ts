@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { StoreComponent } from './store/store.component';
 import { CartComponent } from './cart/cart.component';
 import { CompareValidatorDirective } from '../compare-validator.directive';
+import { NgxPasswordToggleModule } from 'ngx-password-toggle';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { CompareValidatorDirective } from '../compare-validator.directive';
     RouterModule.forChild(publicRouting),
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPasswordToggleModule
   ],
   declarations: [HomeDashboardComponent, CompareValidatorDirective, LoginComponent, RegisterComponent, MenuComponent, StoreComponent, CartComponent]
 })

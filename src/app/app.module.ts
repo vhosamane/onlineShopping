@@ -9,12 +9,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { CompareValidatorDirective } from './compare-validator.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompareValidatorDirective
   ],
   imports: [
     BrowserModule,
