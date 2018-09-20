@@ -4,6 +4,8 @@ export class User {
    password: string;
    cpassword: string;
    name: string;
+   state: string;
+   district: string;
    address: string;
    role: string;
    roles = [];

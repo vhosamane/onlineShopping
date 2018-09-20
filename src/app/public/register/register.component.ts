@@ -13,11 +13,23 @@ export class RegisterComponent implements OnInit {
 
   user: User;
   products: Product;
+  states: any;
+  distics: any;
+  districtDropdown: boolean = true;
+
   constructor(private userRegister: UserRegisterService) {
     this.user = new User();
   }
 
   ngOnInit() {
+    this.loadCountries();
+  }
+
+  loadCountries() {
+    this.userRegister.getAllCountries()
+    .subscribe((res: any) => {
+      this.states = res;
+    });
   }
 
   userRegistrationForm(userRegistration: NgForm) {
@@ -27,6 +39,14 @@ export class RegisterComponent implements OnInit {
     } else {
       alert("Unsuccessful!!!");
     }
+  }
+
+  onSelectState(stateName) {
+    this.districtDropdown = false;
+    this.userRegister.getSelectedStateDistics(stateName)
+      .subscribe((res: any) => {
+        this.distics = res;
+      });
   }
 
 }
