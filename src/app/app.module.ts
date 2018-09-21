@@ -9,6 +9,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment)
+    AngularFireModule.initializeApp(environment),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
