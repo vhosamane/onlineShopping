@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from "angularfire2/database";
+import { AngularFireDatabase } from "angularfire2/database";
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
@@ -9,8 +9,6 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserRegisterService {
-
-  //states: any;
 
   constructor(private db: AngularFireDatabase, private _http: HttpClient) { }
 

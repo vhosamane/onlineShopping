@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 
 @Injectable({
@@ -9,7 +12,7 @@ export class UploadProductService {
 
   private basePath: string = '/productImages';
 
-  constructor(private fb: AngularFireDatabase) {}
+  constructor(private fb: AngularFireDatabase, private _http: HttpClient) {}
 
   pushProduct(product) {
     let storageRef = firebase.storage().ref();
@@ -36,5 +39,22 @@ export class UploadProductService {
 
   addProduct(product) {
     this.fb.list('/products').push(product);
+  }
+
+  pushCategory(category) {
+    this.fb.list('/categories').push(category);
+  }
+
+  loadAllCatagories() {
+    return this._http.get(environment.apiUrl + '/categories.json')
+    .pipe(map((res: any) => {
+      const data = res;
+      const categoryDetails = [];
+      for(let key in data) {
+        let categoryDetail = data[key];
+        categoryDetails.push(categoryDetail);
+      }
+      return categoryDetails;
+    }));
   }
 }
