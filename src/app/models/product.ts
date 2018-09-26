@@ -3,7 +3,7 @@ export class Product {
   name: string;
   unitPrice: string;
   file: string;
-  categoryId: string;
+  category = [];
   createdDate: any;
   updatedDate: any;
   fileObj: any;

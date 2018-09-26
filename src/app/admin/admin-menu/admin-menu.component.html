@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container">
+    <!-- Logo goes here-->
+    <a class="navbar-brand" href="#">Admin</a>
+    <ul class="navbar-nav ml-auto" *ngIf="authService.user != undefined">
+       <li class="nav-item">Welcome: {{authService.user.name}}</li>
+       <li class="nav-item" (click)="signOut()">LogOut</li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-12">
+    <div class="btn-group mr-4">
+        <button type="button" class="btn btn-primary" routerLink="order-details">Order Details</button>
+      </div>
+      <div class="btn-group mr-4">
+        <button type="button" class="btn btn-primary" routerLink="add-product">Add Product</button>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" routerLink="add-category">Add Category</button>
+      </div>
+    </div>
+  </div>
+</div>

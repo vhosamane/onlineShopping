@@ -1,8 +1,8 @@
 <div class="row mt-4">
-<div *ngFor="let item of products; let i = index" class="col-md-3">
-    <img [src]="item.file" class="img-responsive h-50" class="listing-img"/>
-    <div class="">{{item.name}}</div>
-    <div class="">{{item.unitPrice}}</div>
-    <button type="button" class="btn btn-primary btn-lg btn-block mt-3" (click)="addToCart(item.productId, item.name, item.unitPrice, 1)">Add to Cart</button>
-</div>
+  <div *ngFor="let item of products; let i = index" class="col-md-3 mb-4 text-center">
+      <img [src]="item.file" class="img-responsive h-50" class="listing-img"/>
+      <div class="">{{item.name}}</div>
+      <div class="">{{item.unitPrice}}</div>
+      <button type="button" class="btn btn-primary btn-lg btn-block mt-3" (click)="addToCart(item.productId, item.name, item.unitPrice, 1)">Add to Cart</button>
+  </div>
 </div>
