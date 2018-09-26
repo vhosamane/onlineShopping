@@ -36,7 +36,7 @@ export class AddProductComponent implements OnInit {
     if(adminAddProduct.valid) {
       this.uploadProduct.pushProduct(this.product);
     } else {
-      alert("Form not valid");
+      alert("Form not not valid");
     }
   }
 
