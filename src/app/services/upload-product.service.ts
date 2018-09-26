@@ -44,7 +44,7 @@ export class UploadProductService {
   pushCategory(category) {
     this.fb.list('/categories').push(category);
   }
-  
+
   loadAllCatagories() {
     return this._http.get(environment.apiUrl + '/categories.json')
     .pipe(map((res: any) => {

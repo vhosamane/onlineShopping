@@ -1,0 +1,20 @@
+<div class="row mt-5">
+  <table class="table">
+   <thead class="thead-light">
+     <tr>
+        <th class="text-center">Serial Number</th>
+        <th class="text-center">Total</th>
+        <th class="text-center">Items</th>
+        <th class="text-center">User Id</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let eachItem of ordersDetail; let i = index">
+       <td class="text-center">{{i+1}}</td>
+       <td class="text-center">{{eachItem.total}}</td>
+       <td class="text-center">{{eachItem.totalItems}}</td>
+       <td class="text-center">{{eachItem.userId}}</td>
+     </tr>
+  </tbody>
+  </table>
+</div>
