@@ -10,7 +10,9 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+
 import { StoreListComponent } from './store-list/store-list.component';
+
 
 @NgModule({
   imports: [
@@ -20,6 +22,10 @@ import { StoreListComponent } from './store-list/store-list.component';
     FormsModule,
     AgGridModule.withComponents([])
   ],
+
   declarations: [AdminDashboardComponent, AdminMenuComponent, AddProductComponent, AddCategoryComponent, OrderDetailsComponent, StoreListComponent]
+
+  declarations: [AdminDashboardComponent, AdminMenuComponent, AddProductComponent, AddCategoryComponent, OrderDetailsComponent]
+
 })
 export class AdminModule { }
