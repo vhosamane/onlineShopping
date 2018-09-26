@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
       //alert("Succes full");
       this.authService.ValidateUser(this.user)
       .subscribe((result) => {
-        console.log(result);
         let user: User = result;
         if(user != null) {
           if(this.ref !== undefined && this.ref !== '') {
