@@ -1,0 +1,20 @@
+<div class="row mt-5">
+  <div class="col-lg-12">
+    <div class="tableDiv">
+      <div class="tableEachRow text-center">
+        <div class="tableImageCell">Product Image</div>
+        <div class="tableCategoryCell">Product Category</div>
+        <div class="tableNameCell">Product Name</div>
+        <div class="tablePriceCell">Product Price</div>
+      </div>
+      <div class="tableEachRow text-center" *ngFor="let item of products">
+        <div class="tableImageCell ">
+          <img [src]="item.file" class="img-responsive h-50" class="listing-img"/>
+        </div>
+        <div class="tableCategoryCell">{{item.category}}</div>
+        <div class="tableNameCell">{{item.name}}</div>
+        <div class="tablePriceCell">{{item.unitPrice}}</div>
+      </div>
+    </div>
+  </div>
+</div>

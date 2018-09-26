@@ -1,0 +1,28 @@
+.tableDiv {
+  display: table;
+}
+
+.tableEachRow {
+  display: table-row;
+  height: 70px;
+}
+
+.tableImageCell {
+  display: table-cell;
+  width: 20%;
+}
+
+.tableImageCell img {
+  max-width: 100%;
+  height: 100px;
+}
+
+.tableNameCell {
+  display: table-cell;
+  width: 20%;
+}
+
+.tablePriceCell {
+  display: table-cell;
+  width: 20%;
+}

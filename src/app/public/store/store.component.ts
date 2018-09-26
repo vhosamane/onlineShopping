@@ -21,7 +21,6 @@ export class StoreComponent implements OnInit {
   loadProducts() {
     this.storeService.getAllProducts().subscribe((res) => {
       this.products = res;
-      console.log(this.products);
     });
   }
 
