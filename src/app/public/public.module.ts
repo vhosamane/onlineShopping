@@ -12,6 +12,7 @@ import { StoreComponent } from './store/store.component';
 import { CartComponent } from './cart/cart.component';
 import { CompareValidatorDirective } from '../compare-validator.directive';
 import { NgxPasswordToggleModule } from 'ngx-password-toggle';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { NgxPasswordToggleModule } from 'ngx-password-toggle';
     ReactiveFormsModule,
     NgxPasswordToggleModule
   ],
-  declarations: [HomeDashboardComponent, CompareValidatorDirective, LoginComponent, RegisterComponent, MenuComponent, StoreComponent, CartComponent]
+  declarations: [HomeDashboardComponent, CompareValidatorDirective, LoginComponent, RegisterComponent, MenuComponent, StoreComponent, CartComponent, HomepageComponent]
 })
 export class PublicModule { }

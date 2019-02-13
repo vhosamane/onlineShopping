@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { adminRouting } from './adminRouting';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SharedModule } from '../shared/shared.module';
-import { AgGridModule } from 'ag-grid-angular';
+
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
@@ -19,13 +19,12 @@ import { StoreListComponent } from './store-list/store-list.component';
     CommonModule,
     RouterModule.forChild(adminRouting),
     SharedModule,
-    FormsModule,
-    AgGridModule.withComponents([])
+    FormsModule
   ],
 
   declarations: [AdminDashboardComponent, AdminMenuComponent, AddProductComponent, AddCategoryComponent, OrderDetailsComponent, StoreListComponent]
 
-  declarations: [AdminDashboardComponent, AdminMenuComponent, AddProductComponent, AddCategoryComponent, OrderDetailsComponent]
+  //declarations: [AdminDashboardComponent, AdminMenuComponent, AddProductComponent, AddCategoryComponent, OrderDetailsComponent]
 
 })
 export class AdminModule { }

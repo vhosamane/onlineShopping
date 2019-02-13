@@ -2,10 +2,10 @@
   <div class="container">
     <!-- Logo goes here-->
     <a class="navbar-brand" href="#">Shopping Cart</a>
-
+ 
      <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-         <a class="nav-link" routerLinkActive="active">Home</a>
+         <a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a>
        </li>
        <li class="nav-item" *ngIf="authService.user == undefined">
          <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>

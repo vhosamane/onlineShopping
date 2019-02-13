@@ -25,7 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
